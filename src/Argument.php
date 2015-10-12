@@ -12,7 +12,7 @@
  * Argument
  *
  * @vendor  Eden
- * @package string
+ * @package  string
  * @author  Christian Blanquera cblanquera@openovate.com
  */
 class Eden_String_Argument extends Eden\Core\Argument

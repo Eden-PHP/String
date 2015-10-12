@@ -10,9 +10,10 @@
 /**
  * String Object
  *
- * @vendor Eden
- * @package string
- * @author Christian Blanquera cblanquera@openovate.com
+ * @vendor   Eden
+ * @package  string
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Eden_String_Index extends Eden_String_Base
 {
@@ -27,11 +28,12 @@ class Eden_String_Index extends Eden_String_Base
      * Dermines if the missing method is actually a PHP call.
      * If so, call it.
      *
-     * @param *string
-     * @param *array
+     * @param *string $name Name of method
+     * @param *array  $args Arguments to pass
+     *
      * @return mixed
      */
-    public function __call($name, $args) 
+    public function __call($name, $args)  
     {
         Eden_String_Argument::i()
             //argument 1 must be a string
@@ -101,6 +103,7 @@ class Eden_String_Index extends Eden_String_Base
      * Preloads the string
      *
      * @param scalar
+     *
      * @return mixed
      */
     public function __construct($data = null) 
@@ -129,6 +132,7 @@ class Eden_String_Index extends Eden_String_Base
      * Camelizes a string
      *
      * @param string prefix
+     *
      * @return this
      */
     public function camelize($prefix = '-') 
@@ -162,6 +166,7 @@ class Eden_String_Index extends Eden_String_Base
      * Returns the value
      *
      * @param bool whether to get the modified or original version
+     *
      * @return string
      */
     public function get($modified = true) 
@@ -205,6 +210,7 @@ class Eden_String_Index extends Eden_String_Base
      * Titlizes a string
      *
      * @param string prefix
+     *
      * @return this
      */
     public function titlize($prefix = '-') 
@@ -221,6 +227,7 @@ class Eden_String_Index extends Eden_String_Base
      * Uncamelizes a string
      *
      * @param string prefix
+     *
      * @return this
      */
     public function uncamelize($prefix = '-') 
@@ -237,6 +244,7 @@ class Eden_String_Index extends Eden_String_Base
      * Summarizes a text
      *
      * @param int number of words
+     *
      * @return this
      */
     public function summarize($words) 
@@ -256,6 +264,7 @@ class Eden_String_Index extends Eden_String_Base
      * last argument and as a reference
      *
      * @param string
+     *
      * @return string|false
      */
     protected function getMethod($name) 

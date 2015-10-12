@@ -12,9 +12,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3.1",
-        "eden/core" : "4.x-dev",
-        "eden/array" : "4.x-dev" 
+        "php": ">=5.4.1",
+        "eden/core" : "4.*",
+        "eden/array" : "4.*" 
     },
     "autoload": {
          "classmap": [

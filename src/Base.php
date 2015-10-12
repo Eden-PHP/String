@@ -12,7 +12,7 @@
  * Exception
  *
  * @vendor  Eden
- * @package string
+ * @package  string
  * @author  Christian Blanquera cblanquera@openovate.com
  */
 class Eden_String_Base extends Eden\Core\Base
