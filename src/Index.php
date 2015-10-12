@@ -10,10 +10,9 @@
 /**
  * String Object
  *
- * @vendor   Eden
- * @package  string
- * @author   Christian Blanquera <cblanquera@openovate.com>
- * @standard PSR-2
+ * @vendor Eden
+ * @package String
+ * @author Christian Blanquera cblanquera@openovate.com
  */
 class Eden_String_Index extends Eden_String_Base
 {
@@ -28,12 +27,11 @@ class Eden_String_Index extends Eden_String_Base
      * Dermines if the missing method is actually a PHP call.
      * If so, call it.
      *
-     * @param *string $name Name of method
-     * @param *array  $args Arguments to pass
-     *
+     * @param *string   $name   method name
+     * @param *array    $args   arguments
      * @return mixed
      */
-    public function __call($name, $args)  
+    public function __call($name, $args) 
     {
         Eden_String_Argument::i()
             //argument 1 must be a string
@@ -102,9 +100,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Preloads the string
      *
-     * @param scalar
-     *
-     * @return mixed
+     * @param scalar $data  the data
+     * @return void
      */
     public function __construct($data = null) 
     {
@@ -131,9 +128,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Camelizes a string
      *
-     * @param string prefix
-     *
-     * @return this
+     * @param string $prefix    prefix
+     * @return Eden_String_Index
      */
     public function camelize($prefix = '-') 
     {
@@ -150,7 +146,7 @@ class Eden_String_Index extends Eden_String_Base
      * Transforms a string with caps and
      * space to a lower case dash string
      *
-     * @return this
+     * @return Eden_String_Index
      */
     public function dasherize() 
     {
@@ -165,9 +161,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Returns the value
      *
-     * @param bool whether to get the modified or original version
-     *
-     * @return string
+     * @param bool $modified    whether to get the modified or original version
+     * @return bool
      */
     public function get($modified = true) 
     {
@@ -180,7 +175,7 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Reverts changes back to the original
      *
-     * @return this
+     * @return Eden_String_Index
      */
     public function revert() 
     {
@@ -191,7 +186,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Sets data
      *
-     * @return this
+     * @param mixed $value value
+     * @return Eden_String_Index
      */
     public function set($value = null) 
     {
@@ -209,9 +205,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Titlizes a string
      *
-     * @param string prefix
-     *
-     * @return this
+     * @param string $prefix prefix
+     * @return Eden_String_Index
      */
     public function titlize($prefix = '-') 
     {
@@ -226,9 +221,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Uncamelizes a string
      *
-     * @param string prefix
-     *
-     * @return this
+     * @param string $prefix prefix
+     * @return Eden_String_Index
      */
     public function uncamelize($prefix = '-') 
     {
@@ -243,9 +237,8 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Summarizes a text
      *
-     * @param int number of words
-     *
-     * @return this
+     * @param *int  $words  number of words
+     * @return Eden_String_Index
      */
     public function summarize($words) 
     {
@@ -263,8 +256,7 @@ class Eden_String_Index extends Eden_String_Base
      * A PHP method excepts arrays in 3 ways, first argument,
      * last argument and as a reference
      *
-     * @param string
-     *
+     * @param *string   $name method name
      * @return string|false
      */
     protected function getMethod($name) 
