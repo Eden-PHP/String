@@ -1,34 +1,54 @@
 <?php //-->
-/*
- * This file is part of the Type package of the Eden PHP Library.
- * (c) 2013-2014 Openovate Labs
+/**
+ * This file is part of the Eden PHP Library.
+ * (c) 2014-2016 Openovate Labs
  *
- * Copyright and license information can be found at LICENSE
+ * Copyright and license information can be found at LICENSE.txt
  * distributed with this package.
  */
 
 /**
  * String Object
  *
- * @vendor Eden
- * @package string
- * @author Christian Blanquera cblanquera@openovate.com
+ * @package  Eden
+ * @category String
+ * @author   Christian Blanquera <cblanquera@openovate.com>
+ * @standard PSR-2
  */
 class Eden_String_Index extends Eden_String_Base
 {
+    /**
+     * @const string PRE Flag that a PHP method uses the array in the first argument
+     */
     const PRE = 'pre';
+
+    /**
+     * @const string POST Flag that a PHP method uses the array in the last argument
+     */
     const POST = 'post';
+
+    /**
+     * @const string REFERENCE Flag that a PHP method uses the array as a reference pass
+     */
     const REFERENCE = 'reference';
-    
+
+    /**
+     * @var array $data The data being manipulated
+     */
     public $data = '';
+
+    /**
+     * @var array $original The data before any manipulations
+     */
     public $original = '';
     
     /**
      * Dermines if the missing method is actually a PHP call.
      * If so, call it.
      *
-     * @param *string
-     * @param *array
+     * @param *string $name Name of method
+     * @param *array  $args Arguments to pass
+     *
      * @return mixed
      */
     public function __call($name, $args) 
@@ -100,8 +120,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Preloads the string
      *
-     * @param scalar
-     * @return mixed
+     * @param *scalar|null $data The initial data
+     *
+     * @return void
      */
     public function __construct($data = null) 
     {
@@ -128,8 +149,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Camelizes a string
      *
-     * @param string prefix
-     * @return this
+     * @param string $prefix The delimiter to look for
+     *
+     * @return Eden_String_Index
      */
     public function camelize($prefix = '-') 
     {
@@ -146,7 +168,7 @@ class Eden_String_Index extends Eden_String_Base
      * Transforms a string with caps and
      * space to a lower case dash string
      *
-     * @return this
+     * @return Eden_String_Index
      */
     public function dasherize() 
     {
@@ -161,8 +183,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Returns the value
      *
-     * @param bool whether to get the modified or original version
-     * @return string
+     * @param bool $modified Whether to get the modified or original version
+     *
+     * @return bool
      */
     public function get($modified = true) 
     {
@@ -175,7 +198,7 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Reverts changes back to the original
      *
-     * @return this
+     * @return Eden_String_Index
      */
     public function revert() 
     {
@@ -186,7 +209,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Sets data
      *
-     * @return this
+     * @param mixed $value The initial value
+     *
+     * @return Eden_String_Index
      */
     public function set($value = null) 
     {
@@ -204,8 +229,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Titlizes a string
      *
-     * @param string prefix
-     * @return this
+     * @param string $prefix The delimeter to look for
+     *
+     * @return Eden_String_Index
      */
     public function titlize($prefix = '-') 
     {
@@ -220,8 +246,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Uncamelizes a string
      *
-     * @param string prefix
-     * @return this
+     * @param string $prefix The delimeter to look for
+     *
+     * @return Eden_String_Index
      */
     public function uncamelize($prefix = '-') 
     {
@@ -236,8 +263,9 @@ class Eden_String_Index extends Eden_String_Base
     /**
      * Summarizes a text
      *
-     * @param int number of words
-     * @return this
+     * @param *int $words Number of words
+     *
+     * @return Eden_String_Index
      */
     public function summarize($words) 
     {
@@ -255,7 +283,8 @@ class Eden_String_Index extends Eden_String_Base
      * A PHP method excepts arrays in 3 ways, first argument,
      * last argument and as a reference
      *
-     * @param string
+     * @param *string $name PHP method name
+     *
      * @return string|false
      */
     protected function getMethod($name) 
@@ -300,7 +329,10 @@ class Eden_String_Index extends Eden_String_Base
 
         return $name;
     }
-    
+
+    /**
+     * @var array $_methods The list of supported PHP methods
+     */
     protected static $_methods = array(
         'addslashes' => self::PRE,
         'bin2hex' => self::PRE,
