@@ -142,17 +142,13 @@ class Eden_String_Test_Index extends PHPUnit_Framework_TestCase
 	public function testCountChars() 
 	{
 		$string         = 'Hello';
-		$class = eden('string')->set($string)->countChars(1);
-		$this->assertInstanceOf('Eden_Array_Index', $class);
-		$results = $class->get();
+		$results = eden('string')->set($string)->countChars(1);
 		$this->assertEquals(1, $results[72]);
 		$this->assertEquals(1, $results[101]);
 		$this->assertEquals(2, $results[108]);
 		$this->assertEquals(1, $results[111]);
 		
-		$class = eden('string')->set($string)->count_chars(1);
-		$this->assertInstanceOf('Eden_Array_Index', $class);
-		$results = $class->get();
+		$results = eden('string')->set($string)->count_chars(1);
 		$this->assertEquals(1, $results[72]);
 		$this->assertEquals(1, $results[101]);
 		$this->assertEquals(2, $results[108]);
