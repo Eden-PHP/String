@@ -102,7 +102,7 @@ class Eden_String_Index extends Eden_String_Base
         }
 
         //if the result is an array
-        if (is_array($result)) {
+        if (is_array($result) && class_exists('Eden_Array_Index')) {
             //if this class is a array type
             if ($this instanceof Eden_Array_Index) {
                 //set value
